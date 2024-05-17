@@ -2,7 +2,6 @@ import { AppBar, IconButton, Stack, Toolbar, styled } from "@mui/material";
 import React from "react";
 import bwhLogo from "frontend/src/images/bwh-logo.svg";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { makeStyles } from "@mui/styles";
 import SearchBar from "./SearchBar.tsx";
 import { Link } from "react-router-dom";
 import NavBar from "../navMenu/NavBar.tsx";
@@ -10,17 +9,6 @@ import LoginButton from "../auth0/LoginButton.tsx";
 import CurrentTime from "../banner/Time.tsx";
 import WeatherApp from "./WeatherApp.tsx";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-const useStyles = makeStyles({
-  logoImage: {
-    display: "flex",
-    width: "100%", // Set the width to 100%
-    minHeight: "100%",
-    minWidth: "250px",
-    maxWidth: "450px", // Add a max-width for responsiveness
-    alignItems: "center",
-  },
-});
 
 const LogoIconButton = styled("button")({
   cursor: "pointer",
@@ -36,15 +24,12 @@ const LogoIconButton = styled("button")({
 });
 
 function TopBanner() {
-  const classes = useStyles();
-
   return (
     <AppBar
       position="fixed"
       sx={{
         backgroundColor: "white",
         height: "120px",
-        boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
         elevation: 1,
         justifyContent: "center",
         zIndex: 9999,
@@ -56,7 +41,18 @@ function TopBanner() {
 
           <Link to="/">
             <LogoIconButton as="span" color="inherit" aria-label="logo">
-              <img src={bwhLogo} className={classes.logoImage} alt="bwh logo" />
+              <img
+                src={bwhLogo}
+                style={{
+                  display: "flex",
+                  width: "100%", // Set the width to 100%
+                  minHeight: "100%",
+                  minWidth: "250px",
+                  maxWidth: "450px", // Add a max-width for responsiveness
+                  alignItems: "center",
+                }}
+                alt="bwh logo"
+              />
             </LogoIconButton>
           </Link>
         </Stack>

@@ -1,16 +1,14 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
 
 // Styles
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    "& .MuiTextField-root": {
-      margin: "1vw",
-      width: "200px", // Adjust width as needed
-    },
+const StyledDiv = styled('div')({
+  display: "flex",
+  justifyContent: "center",
+  "& .MuiTextField-root": {
+    margin: "1vw",
+    width: "200px", // Adjust width as needed
   },
 });
 
@@ -22,10 +20,8 @@ interface TextboxProps {
 }
 
 const Textbox: React.FC<TextboxProps> = ({ label, value, onChange, type }) => {
-  const classes = useStyles();
-
   return (
-    <div className={classes.root}>
+    <StyledDiv>
       <TextField
         id="outlined-basic"
         label={label}
@@ -34,7 +30,7 @@ const Textbox: React.FC<TextboxProps> = ({ label, value, onChange, type }) => {
         value={value}
         onChange={onChange}
       />
-    </div>
+    </StyledDiv>
   );
 };
 

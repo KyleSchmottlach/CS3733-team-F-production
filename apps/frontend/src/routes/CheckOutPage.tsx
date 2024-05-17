@@ -3,7 +3,6 @@ import { TextField, Button, CardContent, Typography, Box } from '@mui/material';
 import { CheckOutPageFormSubmission } from '../common/formSubmission/CheckOutPageFormSubmission.ts';
 import { CheckOutPageSubmitButton } from "../components/buttons/CheckOutPageSubmitButton.tsx";
 import InitCart from "../common/InitCart.ts";
-import {makeStyles} from "@mui/styles";
 
 const flowerPrices = {
   RRose: 5.99,
@@ -39,25 +38,7 @@ function getGiftTotal():number {
   return total;
 }
 
-const useStyles = makeStyles({
-  input: {
-    '& input[type=number]': {
-      '-moz-appearance': 'textfield'
-    },
-    '& input[type=number]::-webkit-outer-spin-button': {
-      '-webkit-appearance': 'none',
-      margin: 0
-    },
-    '& input[type=number]::-webkit-inner-spin-button': {
-      '-webkit-appearance': 'none',
-      margin: 0
-    }
-  },
-});
-
 function CheckOutPage(){
-
-  const classes = useStyles();
   const total = getFlowerTotal() + getGiftTotal();
   total.toFixed(2);
 
@@ -94,12 +75,27 @@ function CheckOutPage(){
   }
 
   return (
-    <Box sx={{
-        pt: '150px'
-    }}
-         display="flex"
-         justifyContent="center"
-         p={4}>
+    <Box
+      sx={{
+        pt: '150px',
+        '.input': {
+          '& input[type=number]': {
+            '-moz-appearance': 'textfield'
+          },
+          '& input[type=number]::-webkit-outer-spin-button': {
+            '-webkit-appearance': 'none',
+            margin: 0
+          },
+          '& input[type=number]::-webkit-inner-spin-button': {
+            '-webkit-appearance': 'none',
+            margin: 0
+          }
+        }
+      }}
+      display="flex"
+      justifyContent="center"
+      p={4}
+    >
       {/* Payment Details */}
       <Box width="50%" paddingRight={2}>
         <Typography
@@ -115,7 +111,7 @@ function CheckOutPage(){
             onChange={handleNameOnCardInput}
             variant="outlined" />
           <TextField
-            className={classes.input}
+            className={"input"}
             type={"number"}
             InputLabelProps={{ shrink: true }}
             fullWidth margin="normal"
@@ -127,7 +123,7 @@ function CheckOutPage(){
             display="flex"
             justifyContent="left">
             <TextField
-              className={classes.input}
+              className={"input"}
               type={"number"}
               InputLabelProps={{ shrink: true }}
               fullWidth margin="normal"
@@ -137,7 +133,7 @@ function CheckOutPage(){
               onChange={handleExpirationInput}
               style={{ marginRight: '10px', width: '30%' }} />
             <TextField
-              className={classes.input}
+              className={"input"}
               type={"number"}
               InputLabelProps={{ shrink: true }}
               fullWidth margin="normal"

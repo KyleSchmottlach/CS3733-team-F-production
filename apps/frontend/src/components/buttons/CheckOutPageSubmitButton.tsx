@@ -1,5 +1,5 @@
 import { Alert, AlertProps, Button, Snackbar } from "@mui/material";
-import { forwardRef, useState } from "react";
+import React, { forwardRef, useState } from "react";
 import {Link} from "react-router-dom";
 import {CheckOutPageFormSubmission} from "../../common/formSubmission/CheckOutPageFormSubmission.ts";
 import InitCart from "../../common/InitCart.ts";
@@ -22,8 +22,6 @@ export function CheckOutPageSubmitButton(props: ButtonProps) {
       return <Alert elevation={6} ref={ref} {...props} />;
     },
   );
-
-
 
   const handleClose = (
     _event?: React.SyntheticEvent | Event,

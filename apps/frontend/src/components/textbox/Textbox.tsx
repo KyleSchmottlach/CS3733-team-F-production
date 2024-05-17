@@ -1,16 +1,5 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import { styled } from "@mui/material/styles";
-
-// Styles
-const StyledDiv = styled('div')({
-  display: "flex",
-  justifyContent: "center",
-  "& .MuiTextField-root": {
-    margin: "1vw",
-    width: "200px", // Adjust width as needed
-  },
-});
 
 interface TextboxProps {
   label: string;
@@ -21,7 +10,10 @@ interface TextboxProps {
 
 const Textbox: React.FC<TextboxProps> = ({ label, value, onChange, type }) => {
   return (
-    <StyledDiv>
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+    }}>
       <TextField
         id="outlined-basic"
         label={label}
@@ -29,8 +21,12 @@ const Textbox: React.FC<TextboxProps> = ({ label, value, onChange, type }) => {
         type={type} // Set input type
         value={value}
         onChange={onChange}
+        style={{
+          margin: "1vw",
+          width: "200px", // Adjust width as needed
+        }}
       />
-    </StyledDiv>
+    </div>
   );
 };
 

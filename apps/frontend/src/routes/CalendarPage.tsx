@@ -14,18 +14,7 @@ import ServiceNavTabs from "../components/serviceNav/tabNav/ServiceNavTabs.tsx";
 import {CenterAlignedTextbox} from "../components/textbox/CenterAlignedTextbox.tsx";
 import EmployeeDropDown from "../components/dropdown/EmployeeDropDown.tsx";
 import {CalendarAvailabiltiySubmitButton} from "../components/buttons/AppointmentSubmitButton.tsx";
-import { styled } from "@mui/material/styles";
 import NodeDropDown from "../components/dropdown/NodeDropDown.tsx";
-
-const StyledDiv = styled('div')({
-  display: "flex",
-  justifyContent: "center",
-  "& .MuiTextField-root": {
-    minWidth: "150px", // Adjust width as needed
-    maxWidth: "220px",
-    minHeight: "75px",
-  },
-});
 
 export default function CalendarPage() {
   const [form, setResponses] = useState<CalendarPageFormSubmission>({
@@ -362,7 +351,10 @@ export default function CalendarPage() {
                 </Grid>
                 <Grid item xs={6} sx={{align: "center"}}>
                   <Typography align={"center"}>Select Open Date:</Typography>
-                  <StyledDiv>
+                  <div style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}>
                     <TextField
                       // sx={{
                       //   mx: "35px" //is there a better way to line this up tp CenterAllginedTextbox elements???
@@ -372,8 +364,13 @@ export default function CalendarPage() {
                       value={selectedDate ? selectedDate.format('MM-DD-YYYY') : ''}
                       //value={highlightedDays.length > 0 ? highlightedDays.map(day => day.toString()).join(', ') : ''}
                       onChange={(e) => handleDateInput(dayjs(e.target.value))}
+                      sx={{
+                        minWidth: "150px", // Adjust width as needed
+                        maxWidth: "220px",
+                        minHeight: "75px",
+                      }}
                     />
-                  </StyledDiv>
+                  </div>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography align={"center"}>Email:</Typography>

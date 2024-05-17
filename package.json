@@ -35,7 +35,7 @@
     "build": "turbo run build",
     "docker:upload": "turbo run docker:upload --concurrency=1"
   },
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@4.2.2",
   "devDependencies": {
     "@types/joi": "latest",
     "@types/lodash": "^4",
@@ -68,9 +68,8 @@
     "@fontsource/open-sans": "^5.0.27",
     "@ladjs/multer": "^2.0.0-rc.5",
     "@mui/icons-material": "^5.15.14",
-    "@mui/material": "^5.15.15",
+    "@mui/material": "^5.15.18",
     "@mui/styled-engine-sc": "6.0.0-alpha.18",
-    "@mui/styles": "^5.15.18",
     "@mui/x-charts": "^7.3.0",
     "@mui/x-data-grid": "^7.1.0",
     "@mui/x-date-pickers": "^7.2.0",

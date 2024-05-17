@@ -5,7 +5,6 @@ import {
   FormControl,
   InputLabel, SelectVariants,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import {LabelValuePair} from "../../common/LabelValuePair.ts";
 
 interface DropDownProps {
@@ -26,12 +25,6 @@ const isOptionArray = (
     "label" in items[0]
   );
 };
-
-const StyledDiv = styled('div')({
-  display: "flex",
-  justifyContent: "center",
-  minWidth: "150px", // Adjust width as needed
-});
 
 export function DropDown(props: DropDownProps) {
   const handleSelectChange = (event: SelectChangeEvent) => {
@@ -55,7 +48,11 @@ export function DropDown(props: DropDownProps) {
   };
 
   return (
-    <StyledDiv>
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+      minWidth: "150px", // Adjust width as needed
+    }}>
       <FormControl sx={{ width: 220, height: 75 }}>
         <InputLabel
           id="demo-simple-select-label"
@@ -83,6 +80,6 @@ export function DropDown(props: DropDownProps) {
           {renderItems()}
         </Select>
       </FormControl>
-    </StyledDiv>
+    </div>
   );
 }

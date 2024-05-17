@@ -1,6 +1,5 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import { styled } from "@mui/material/styles";
 
 interface TextboxProps {
   label: string;
@@ -9,19 +8,12 @@ interface TextboxProps {
   type?: "text" | "password" | "number"; // Define type prop to indicate input type
 }
 
-const StyledDiv = styled('div')({
-  display: "flex",
-  justifyContent: "center",
-  "& .MuiTextField-root": {
-    minWidth: "150px", // Adjust width as needed
-    maxWidth: "220px",
-    minHeight: "75px",
-  },
-});
-
 export const CenterAlignedNumTextbox = (props: TextboxProps) => {
   return (
-    <StyledDiv>
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+    }}>
       <TextField
         id="outlined-number"
         label={props.label}
@@ -30,7 +22,12 @@ export const CenterAlignedNumTextbox = (props: TextboxProps) => {
         inputProps={{ min: 0 }}
         value={props.value}
         onChange={props.onChange}
+        sx={{
+          minWidth: "150px", // Adjust width as needed
+          maxWidth: "220px",
+          minHeight: "75px",
+        }}
       />
-    </StyledDiv>
+    </div>
   );
 };

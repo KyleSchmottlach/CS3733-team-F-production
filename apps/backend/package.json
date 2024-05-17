@@ -19,6 +19,7 @@
     "database": "workspace:*",
     "express": "^4.19.2",
     "express-oauth2-jwt-bearer": "^1.6.0",
+    "fs-fs": "^1.0.0",
     "http-errors": "^2.0.0",
     "http-terminator": "^3.2.0",
     "jose": "^5.2.4",
